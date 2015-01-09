@@ -35,6 +35,6 @@ PROMPT="%{$fg_bold[cyan]%}%n%{$fg_bold[yellow]%} %~ %b%{$fg[white]%}$ "
 RPROMPT="[%{$fg[green]%}%W %{$fg[magenta]%}@%{$fg[green]%} %@%{$reset_color%}]"
 
 # load extra .zsh files
-for file in addons/*.zsh; do
+for file in $HOME/dotfiles/zsh/addons/*.zsh; do
   source $file
 done
