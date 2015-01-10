@@ -34,6 +34,8 @@ autoload -U colors && colors
 PROMPT="%{$fg_bold[cyan]%}%n%{$fg_bold[yellow]%} %~ %b%{$fg[white]%}$ "
 RPROMPT="[%{$fg[green]%}%W %{$fg[magenta]%}@%{$fg[green]%} %@%{$reset_color%}]"
 
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # load extra .zsh files
 for file in $HOME/dotfiles/zsh/addons/*.zsh; do
   source $file
