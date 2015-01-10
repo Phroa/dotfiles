@@ -65,4 +65,6 @@ git_prompt_string() {
 }
 
 # Set the right-hand prompt
-RPROMPT="$(git_prompt_string)$RPROMPT"
+function precmd() {
+  RPROMPT="$(git_prompt_string) [%{$fg[green]%}%W %{$fg[magenta]%}@%{$fg[green]%} %@%{$reset_color%}]"
+}
