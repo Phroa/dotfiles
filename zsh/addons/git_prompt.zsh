@@ -66,5 +66,5 @@ git_prompt_string() {
 
 # Set the right-hand prompt
 function precmd() {
-  RPROMPT="$(git_prompt_string) [%{$fg[green]%}%W %{$fg[magenta]%}@%{$fg[green]%} %@%{$reset_color%}]"
+  RPROMPT="$(git_prompt_string) [%{$fg[green]%}%D{%b. %-d} %{$fg[magenta]%}@%{$fg[green]%} %D{%-I:%M %P}%{$reset_color%}]"
 }

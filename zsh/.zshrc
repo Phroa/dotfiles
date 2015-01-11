@@ -31,7 +31,7 @@ eval "$(rbenv init -)"
 autoload -U promptinit && promptinit
 autoload -U colors && colors
 
-PROMPT="%{$fg_bold[cyan]%}%n%{$fg_bold[yellow]%} %~ %b%{$fg[white]%}$ "
+PROMPT="%{$fg_bold[cyan]%}%n%{$fg_bold[yellow]%} %~ %b%{$fg[white]%}%(!.#.$) "
 #RPROMPT="[%{$fg[green]%}%W %{$fg[magenta]%}@%{$fg[green]%} %@%{$reset_color%}]"
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
