@@ -15,3 +15,6 @@ alias gi='vim .gitignore'
 alias gl='git log'
 alias gp='git push'
 alias gs='git status'
+
+alias vim="vim -u $HOME/dotfiles/vim/vimrc"
+
