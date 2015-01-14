@@ -1,0 +1,15 @@
+syntax on
+set number
+
+" needed by pathogen for some arcane reason
+set nocp
+
+execute pathogen#infect()
+filetype plugin indent on
+
+set laststatus=2
+
+" airline options
+
+let g:airline#extensions#tabline#enabled = 1
+
