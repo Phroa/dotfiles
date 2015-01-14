@@ -1,0 +1,12 @@
+[submodule "vim/bundle/vim-fugitive"]
+	path = vim/bundle/vim-fugitive
+	url = http://github.com/tpope/vim-fugitive
+[submodule "vim/bundle/vim-sensible"]
+	path = vim/bundle/vim-sensible
+	url = http://github.com/tpope/vim-sensible
+[submodule "vim/bundle/vim-airline"]
+	path = vim/bundle/vim-airline
+	url = http://github.com/bling/vim-airline
+[submodule "vim/bundle/vim-trailing-whitespace"]
+	path = vim/bundle/vim-trailing-whitespace
+	url = http://github.com/bronson/vim-trailing-whitespace
