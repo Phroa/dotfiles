@@ -13,3 +13,7 @@ set laststatus=2
 
 let g:airline#extensions#tabline#enabled = 1
 
+" startify options
+
+let g:startify_custom_header = readfile($HOME . "/dotfiles/vim/header.txt")
+let g:startify_list_order = ['sessions', 'bookmarks', 'files', 'dir']
