@@ -30,7 +30,7 @@ link() {
 	printf "%b%s%b linked from %b%s %b[%b%i linked%b]\n" \
 		"${cyan}" "${HOME}/${2}" "${reset_code}" \
 		"${cyan}" "${HOME}/${1}" "${reset_code}" \
-		"${reset_code}" "${green}" "${success}" "${reset_code}"
+		"${green}" "${success}" "${reset_code}"
 }
 
 # One if-else for each file. `-f' used to check files' existance, `-d' for folders
