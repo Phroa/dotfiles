@@ -34,4 +34,29 @@ let g:startify_list_order = 	[['   Saved Sessions:',
 				\  '   -----------------'], 'dir']
 let g:startify_skiplist = ['\.git/.*']
 
+" neocomplete options
+
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+if !exists('g:neocomplete#keyword_patterns')
+	let g:neocomplete#keyword_patterns = {}
+endif
+
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+inoremap <expr><Left> neocomplete#close_popup() . "\<Left>"
+inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+highlight Pmenu ctermbg=7 ctermfg=0
+highlight PmenuSel ctermbg=1
+highlight PmenuSbar ctermbg=0
 
