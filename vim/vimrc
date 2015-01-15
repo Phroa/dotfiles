@@ -1,39 +1,49 @@
-syntax on
-set number
 
+syntax on
+
+" Section: Pathogen {{{1
 " needed by pathogen for some arcane reason
 set nocp
 
 execute pathogen#infect()
 filetype plugin indent on
 
+" }}}1
+
+" Section: Airline {{{1
 set laststatus=2
 
 " airline options
 
 let g:airline#extensions#tabline#enabled = 1
 
+" }}}1
+
+" Section: Startify {{{1
 " startify options
 
 function! s:center_text(lines) abort
-	let longest_line = max(map(copy(a:lines), 'len(v:val)'))
-	let centered_lines = map(copy(a:lines), 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
-	return centered_lines
+    let longest_line = max(map(copy(a:lines), 'len(v:val)'))
+    let centered_lines = map(copy(a:lines), 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
+    return centered_lines
 endfunction
 
 let g:startify_bookmarks = ['~/dotfiles/vim/vimrc']
 let g:startify_change_to_vcs_root = 1
 let g:startify_custom_header = s:center_text(readfile($HOME . "/dotfiles/vim/header.txt"))
 let g:startify_list_order = 	[['   Saved Sessions:',
-				\ '   ---------------'], 'sessions',
-				\ ['   Bookmarked Files',
-				\  '   ----------------'], 'bookmarks',
-				\ ['   Recently Used Files',
-				\  '   -------------------'], 'files',
-				\ ['   Current Directory',
-				\  '   -----------------'], 'dir']
+            \ '   ---------------'], 'sessions',
+            \ ['   Bookmarked Files',
+            \  '   ----------------'], 'bookmarks',
+            \ ['   Recently Used Files',
+            \  '   -------------------'], 'files',
+            \ ['   Current Directory',
+            \  '   -----------------'], 'dir']
 let g:startify_skiplist = ['\.git/.*']
 
+" }}}1
+
+" Section: Neocomplete {{{1
 " neocomplete options
 
 let g:neocomplete#enable_at_startup = 1
@@ -41,7 +51,7 @@ let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 if !exists('g:neocomplete#keyword_patterns')
-	let g:neocomplete#keyword_patterns = {}
+    let g:neocomplete#keyword_patterns = {}
 endif
 
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
@@ -60,3 +70,79 @@ highlight Pmenu ctermbg=7 ctermfg=0
 highlight PmenuSel ctermbg=1
 highlight PmenuSbar ctermbg=0
 
+" }}}1
+
+" Section: General Settings {{{1
+
+set autoindent
+set autoread
+set autowrite
+set cmdheight=2
+set expandtab
+set foldmethod=marker
+set foldopen+=jump
+set history=200
+set number
+set nowrap
+set shiftwidth=4
+set showcmd
+set showmatch
+set sidescrolloff=5
+set smartcase
+set smarttab
+set softtabstop=0
+set tabstop=4
+set visualbell
+set wildmenu
+set wildmode=longest:full,full
+
+" }}}1
+
+" Section: Autocommand Filetypes {{{1
+" All credit for this section to our lord and saviour Tim Pope
+augroup FTOptions " {{{2
+    autocmd!
+    autocmd FileType apache       setlocal commentstring=#\ %s
+    autocmd FileType c,cpp,cs,java,perl,javscript,php,aspperl,tex,css let b:surround_101 = "\r\n}"
+    autocmd FileType c,cpp,cs,java          setlocal commentstring=//\ %s
+    autocmd FileType cucumber let b:dispatch = 'cucumber %' | imap <buffer><expr> <Tab> pumvisible() ? "\<C-N>" : (CucumberComplete(1,'') >= 0 ? "\<C-X>\<C-O>" : (getline('.') =~ '\S' ? ' ' : "\<C-I>"))
+    autocmd FileType gitcommit setlocal spell
+    autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
+    autocmd FileType gitrebase nnoremap <buffer> S :Cycle<CR>
+    autocmd FileType help nnoremap <silent><buffer> q :q<CR>
+    autocmd FileType help setlocal ai fo+=2n | silent! setlocal nospell
+    autocmd FileType html setlocal iskeyword+=~ | let b:dispatch = ':OpenURL %'
+    autocmd FileType * if exists("+completefunc") && &completefunc == "" | setlocal completefunc=syntaxcomplete#Complete | endif
+    autocmd FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
+    autocmd FileType java let b:dispatch = 'javac %'
+    autocmd FileType liquid,markdown,text,txt setlocal tw=78 linebreak nolist
+    autocmd FileType lua  setlocal includeexpr=substitute(v:fname,'\\.','/','g').'.lua'
+    autocmd FileType perl let b:dispatch = 'perl -Wc %'
+    autocmd FileType perl,python,ruby       inoremap <silent> <buffer> <C-X>! #!/usr/bin/env<Space><C-R>=&ft<CR>
+    autocmd FileType ruby
+                \ let b:start = executable('pry') ? 'pry -r "%:p"' : 'irb -r "%:p"' |
+                \ if expand('%') =~# '_test\.rb$' |
+                \   let b:dispatch = 'testrb %' |
+                \ elseif expand('%') =~# '_spec\.rb$' |
+                \   let b:dispatch = 'rspec %' |
+                \ elseif !exists('b:dispatch') |
+                \   let b:dispatch = 'ruby -wc %' |
+                \ endif
+    autocmd FileType ruby setlocal tw=79 comments=:#\  isfname+=:
+    autocmd FileType sh,zsh,csh,tcsh        inoremap <silent> <buffer> <C-X>! #!/bin/<C-R>=&ft<CR>
+    autocmd FileType sh,zsh,csh,tcsh        let &l:path = substitute($PATH, ':', ',', 'g')
+    autocmd FileType tex let b:dispatch = 'latex -interaction=nonstopmode %' | setlocal formatoptions+=l
+    autocmd FileType text,txt,mail          setlocal ai com=fb:*,fb:-,n:>
+    autocmd FileType timl let b:dispatch = ':w|source %' | let b:start = b:dispatch . '|TLrepl' | command! -bar -bang Console Wepl
+    autocmd FileType vim  setlocal keywordprg=:help |
+                \ if exists(':Runtime') |
+                \   let b:dispatch = ':Runtime' |
+                \   let b:start = ':Runtime|PP' |
+                \ else |
+                \   let b:dispatch = ":unlet! g:loaded_{expand('%:t:r')}|source %" |
+                \ endif
+    autocmd FileType xml,xsd,xslt,javascript setlocal ts=2
+    autocmd Syntax   javascript             setlocal isk+=$
+augroup END " }}}2
+
+" }}}1
