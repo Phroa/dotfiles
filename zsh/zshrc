@@ -28,6 +28,8 @@ PATH=$(ruby -rubygems -e "puts Gem.user_dir")/bin:$PATH
 PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
 
+PATH=/usr/local/heroku/bin:$PATH
+
 autoload -U promptinit && promptinit
 autoload -U colors && colors
 
