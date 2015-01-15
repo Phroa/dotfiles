@@ -1,42 +1,56 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Create symlinks to install a fresh copy of all the dotfiles here.
 
 success=0
 skipped=0
 
-function skip() {
+# Formatting bits.
+reset_code=$(tput sgr0)
+
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+yellow=$(tput setaf 3)
+cyan=$(tput setaf 6)
+
+# Functions
+
+skip() {
+	# increment counter of skipped files
 	let skipped+=1
-	echo -e "\e[36m$HOME/$1\e[0m already exists! \e[31mSkipping...\e[0m \e[36m[\e[0m\e[31m$skipped skipped\e[0m\e[36m]\e[0m"
+	printf "%b%s%b already exists! %bSkipping... %b[%b%i skipped%b]\n" "${cyan}" "${HOME}/${1}" "${reset_code}" "${red}" "${reset_code}" "${red}" "${skipped}" "${reset_code}"
 }
 
-function link() {
+link() {
+	# increment counter of successfully linked files
 	let success+=1
-	ln -s "$HOME/$1" "$HOME/$2"
-	echo -e "\e[36m$HOME/$2\e[0m linked from \e[36m$HOME/$1\e[0m \e[36m[\e[0m\e[32m$success linked\e[0m\e[36m]\e[0m"
+	ln -s "${HOME}/${1}" "${HOME}/${2}"
+	printf "%b%s%b linked from %b%s %b[%b%i linked%b]\n" "${cyan}" "${HOME}/${2}" "${reset_code}" "${cyan}" "${HOME}/${1}" "${reset_code}" "${reset_code}" "${green}" "${success}" "${reset_code}"
 }
 
-if [[ -f $HOME/.zshrc ]]; then
+# One if-else for each file. `-f' used to check files' existance, `-d' for folders
+
+if [[ -f "${HOME}/.zshrc" ]]; then
 	skip ".zshrc"
 else
 	link "dotfiles/zsh/zshrc" ".zshrc"
 fi
 
-if [[ -f $HOME/.gemrc ]]; then
+if [[ -f "${HOME}/.gemrc" ]]; then
 	skip ".gemrc"
 else
 	link "dotfiles/gemrc" ".gemrc"
 fi
 
-if [[ -d $HOME/.vim ]]; then
+if [[ -d "${HOME}/.vim" ]]; then
 	skip ".vim"
 else
 	link "dotfiles/vim" ".vim"
 fi
 
-echo -e "\e[33mLinked\e[0m \e[32m$success\e[0m \e[33mfiles/folders and skipped \e[0m\e[31m$skipped\e[0m\e[33m.\e[0m"
+printf "%bLinked %b%i%b files/folders and skipped %b%i%b.%b\n" "${yellow}" "${green}" "${success}" "${yellow}" "${red}" "${skipped}" "${yellow}" "${reset_code}"
 
-if [[ $skipped -gt 0 ]]; then
-	echo -e "\e[31mIf this is the first time you've ran this script, please remove the files that have been skipped.\e[0m"
-	exit $skipped
+if [[ ${skipped} -gt 0 ]]; then
+	printf "%bIf this is the first time you've ran this script, please remove the files that have been skipped.%b\n" "${red}" "${reset_code}"
+	exit ${skipped}
 fi
