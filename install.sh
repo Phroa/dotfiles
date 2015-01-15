@@ -7,13 +7,13 @@ skipped=0
 
 function skip() {
 	let skipped+=1
-	echo "$HOME/$1 already exists! Skipping... [$skipped skipped]"
+	echo -e "\e[36m$HOME/$1\e[0m already exists! \e[31mSkipping...\e[0m \e[36m[\e[0m\e[31m$skipped skipped\e[0m\e[36m]\e[0m"
 }
 
 function link() {
 	let success+=1
 	ln -s "$HOME/$1" "$HOME/$2"
-	echo "$HOME/$2 linked from $HOME/$1! [$success linked]"
+	echo -e "\e[36m$HOME/$2\e[0m linked from \e[36m$HOME/$1\e[0m \e[36m[\e[0m\e[32m$success linked\e[0m\e[36m]\e[0m"
 }
 
 if [[ -f $HOME/.zshrc ]]; then
@@ -34,9 +34,9 @@ else
 	link "dotfiles/vim" ".vim"
 fi
 
-echo "Linked $success files/folders and skipped $skipped."
+echo -e "\e[33mLinked\e[0m \e[32m$success\e[0m \e[33mfiles/folders and skipped \e[0m\e[31m$skipped\e[0m\e[33m.\e[0m"
 
 if [[ $skipped -gt 0 ]]; then
-	echo "If this is the first time you've ran this script, please remove the files that have been skipped."
+	echo -e "\e[31mIf this is the first time you've ran this script, please remove the files that have been skipped.\e[0m"
 	exit $skipped
 fi
