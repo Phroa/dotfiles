@@ -18,14 +18,19 @@ cyan=$(tput setaf 6)
 skip() {
 	# increment counter of skipped files
 	let skipped+=1
-	printf "%b%s%b already exists! %bSkipping... %b[%b%i skipped%b]\n" "${cyan}" "${HOME}/${1}" "${reset_code}" "${red}" "${reset_code}" "${red}" "${skipped}" "${reset_code}"
+	printf "%b%s%b already exists! %bSkipping... %b[%b%i skipped%b]\n" \
+		"${cyan}" "${HOME}/${1}" "${reset_code}" \
+		"${red}" "${reset_code}" "${red}" "${skipped}" "${reset_code}"
 }
 
 link() {
 	# increment counter of successfully linked files
 	let success+=1
 	ln -s "${HOME}/${1}" "${HOME}/${2}"
-	printf "%b%s%b linked from %b%s %b[%b%i linked%b]\n" "${cyan}" "${HOME}/${2}" "${reset_code}" "${cyan}" "${HOME}/${1}" "${reset_code}" "${reset_code}" "${green}" "${success}" "${reset_code}"
+	printf "%b%s%b linked from %b%s %b[%b%i linked%b]\n" \
+		"${cyan}" "${HOME}/${2}" "${reset_code}" \
+		"${cyan}" "${HOME}/${1}" "${reset_code}" \
+		"${reset_code}" "${green}" "${success}" "${reset_code}"
 }
 
 # One if-else for each file. `-f' used to check files' existance, `-d' for folders
@@ -48,9 +53,13 @@ else
 	link "dotfiles/vim" ".vim"
 fi
 
-printf "%bLinked %b%i%b files/folders and skipped %b%i%b.%b\n" "${yellow}" "${green}" "${success}" "${yellow}" "${red}" "${skipped}" "${yellow}" "${reset_code}"
+printf "%bLinked %b%i%b files/folders and skipped %b%i%b.%b\n" \
+	"${yellow}" "${green}" "${success}" "${yellow}" \
+	"${red}" "${skipped}" "${yellow}" "${reset_code}"
 
 if [[ ${skipped} -gt 0 ]]; then
-	printf "%bIf this is the first time you've ran this script, please remove the files that have been skipped.%b\n" "${red}" "${reset_code}"
+	printf "%bIf this is the first time you've ran this script, \
+please remove the files that have been skipped.%b\n" \
+		"${red}" "${reset_code}"
 	exit ${skipped}
 fi
