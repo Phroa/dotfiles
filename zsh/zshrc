@@ -38,6 +38,9 @@ PROMPT="%{$fg_bold[cyan]%}%n%{$fg_bold[yellow]%} %~ %b%{$fg[white]%}%(!.#.$) "
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# ls colors based on filetype
+eval `dircolors $HOME/dotfiles/ls-colors-solarized/dircolors`
+
 # load extra .zsh files
 for file in $HOME/dotfiles/zsh/addons/*.zsh; do
   source $file

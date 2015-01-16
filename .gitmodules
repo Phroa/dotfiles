@@ -73,3 +73,6 @@
 [submodule "vim/bundle/vim-heroku"]
 	path = vim/bundle/vim-heroku
 	url = https://github.com/tpope/vim-heroku
+[submodule "ls-colors-solarized"]
+	path = ls-colors-solarized
+	url = https://github.com/sigurdga/ls-colors-solarized
