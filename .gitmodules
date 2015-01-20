@@ -76,3 +76,6 @@
 [submodule "ls-colors-solarized"]
 	path = ls-colors-solarized
 	url = https://github.com/sigurdga/ls-colors-solarized
+[submodule "vim/bundle/rainbow_parentheses.vim"]
+	path = vim/bundle/rainbow_parentheses.vim
+	url = https://github.com/kien/rainbow_parentheses.vim
