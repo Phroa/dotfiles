@@ -97,6 +97,7 @@ set foldopen+=jump
 set history=200
 set number
 set nowrap
+set relativenumber
 set shiftwidth=4
 set showcmd
 set showmatch
