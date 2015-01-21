@@ -87,7 +87,7 @@ highlight PmenuSbar ctermbg=0
 
 " Section: General Settings {{{1
 
-" Leader Configuration {{{2
+" Leader/Mapping Configuration {{{2
 
 let mapleader = ","
 let g:mapleader = ","
@@ -96,6 +96,13 @@ nmap <Leader>c :Gcommit<CR>
 nmap <Leader>s :Gstatus<CR>
 nmap <Leader>w :w!<CR>
 
+" https://github.com/junegunn/vim-easy-align
+
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " }}}2
 
@@ -137,23 +144,23 @@ colorscheme molokai
 " All credit for this section to our lord and saviour Tim Pope
 augroup FTOptions " {{{2
     autocmd!
-    autocmd FileType apache       setlocal commentstring=#\ %s
+    autocmd FileType apache                                           setlocal commentstring=#\ %s
     autocmd FileType c,cpp,cs,java,perl,javscript,php,aspperl,tex,css let b:surround_101 = "\r\n}"
-    autocmd FileType c,cpp,cs,java          setlocal commentstring=//\ %s
-    autocmd FileType cucumber let b:dispatch = 'cucumber %' | imap <buffer><expr> <Tab> pumvisible() ? "\<C-N>" : (CucumberComplete(1,'') >= 0 ? "\<C-X>\<C-O>" : (getline('.') =~ '\S' ? ' ' : "\<C-I>"))
-    autocmd FileType gitcommit setlocal spell
-    autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
-    autocmd FileType gitrebase nnoremap <buffer> S :Cycle<CR>
-    autocmd FileType help nnoremap <silent><buffer> q :q<CR>
-    autocmd FileType help setlocal ai fo+=2n | silent! setlocal nospell
-    autocmd FileType html setlocal iskeyword+=~ | let b:dispatch = ':OpenURL %'
-    autocmd FileType * if exists("+completefunc") && &completefunc == "" | setlocal completefunc=syntaxcomplete#Complete | endif
-    autocmd FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
-    autocmd FileType java let b:dispatch = 'javac %'
-    autocmd FileType liquid,markdown,text,txt setlocal tw=78 linebreak nolist
-    autocmd FileType lua  setlocal includeexpr=substitute(v:fname,'\\.','/','g').'.lua'
-    autocmd FileType perl let b:dispatch = 'perl -Wc %'
-    autocmd FileType perl,python,ruby       inoremap <silent> <buffer> <C-X>! #!/usr/bin/env<Space><C-R>=&ft<CR>
+    autocmd FileType c,cpp,cs,java                                    setlocal commentstring=//\ %s
+    autocmd FileType cucumber                                         let b:dispatch = 'cucumber %' | imap <buffer><expr> <Tab> pumvisible() ? "\<C-N>" : (CucumberComplete(1,'') >= 0 ? "\<C-X>\<C-O>" : (getline('.') =~ '\S' ? ' ' : "\<C-I>"))
+    autocmd FileType gitcommit                                        setlocal spell
+    autocmd FileType git,gitcommit                                    setlocal foldmethod=syntax foldlevel=1
+    autocmd FileType gitrebase                                        nnoremap <buffer> S :Cycle<CR>
+    autocmd FileType help                                             nnoremap <silent><buffer> q :q<CR>
+    autocmd FileType help                                             setlocal ai fo+=2n | silent! setlocal nospell
+    autocmd FileType html                                             setlocal iskeyword+=~ | let b:dispatch = ':OpenURL %'
+    autocmd FileType *                                                if exists("+completefunc") && &completefunc == "" | setlocal completefunc=syntaxcomplete#Complete | endif
+    autocmd FileType *                                                if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
+    autocmd FileType java                                             let b:dispatch = 'javac %'
+    autocmd FileType liquid,markdown,text,txt                         setlocal tw=78 linebreak nolist
+    autocmd FileType lua                                              setlocal includeexpr=substitute(v:fname,'\\.','/','g').'.lua'
+    autocmd FileType perl                                             let b:dispatch = 'perl -Wc %'
+    autocmd FileType perl,python,ruby                                 inoremap <silent> <buffer> <C-X>! #!/usr/bin/env<Space><C-R>=&ft<CR>
     autocmd FileType ruby
                 \ let b:start = executable('pry') ? 'pry -r "%:p"' : 'irb -r "%:p"' |
                 \ if expand('%') =~# '_test\.rb$' |
