@@ -162,21 +162,21 @@ augroup FTOptions " {{{2
     autocmd FileType perl                                             let b:dispatch = 'perl -Wc %'
     autocmd FileType perl,python,ruby                                 inoremap <silent> <buffer> <C-X>! #!/usr/bin/env<Space><C-R>=&ft<CR>
     autocmd FileType ruby
-                \ let b:start = executable('pry') ? 'pry -r "%:p"' : 'irb -r "%:p"' |
-                \ if expand('%') =~# '_test\.rb$' |
-                \   let b:dispatch = 'testrb %' |
+                \ let b:start          = executable('pry') ? 'pry -r "%:p"' : 'irb -r "%:p"' |
+                \ if expand('%')     =~# '_test\.rb$' |
+                \   let b:dispatch     = 'testrb %' |
                 \ elseif expand('%') =~# '_spec\.rb$' |
-                \   let b:dispatch = 'rspec %' |
+                \   let b:dispatch     = 'rspec %' |
                 \ elseif !exists('b:dispatch') |
-                \   let b:dispatch = 'ruby -wc %' |
+                \   let b:dispatch     = 'ruby -wc %' |
                 \ endif
-    autocmd FileType ruby setlocal tw=79 comments=:#\  isfname+=:
-    autocmd FileType sh,zsh,csh,tcsh        inoremap <silent> <buffer> <C-X>! #!/bin/<C-R>=&ft<CR>
-    autocmd FileType sh,zsh,csh,tcsh        let &l:path = substitute($PATH, ':', ',', 'g')
-    autocmd FileType tex let b:dispatch = 'latex -interaction=nonstopmode %' | setlocal formatoptions+=l
-    autocmd FileType text,txt,mail          setlocal ai com=fb:*,fb:-,n:>
-    autocmd FileType timl let b:dispatch = ':w|source %' | let b:start = b:dispatch . '|TLrepl' | command! -bar -bang Console Wepl
-    autocmd FileType vim  setlocal keywordprg=:help |
+    autocmd FileType ruby            setlocal tw=79 comments=:#\  isfname+=:
+    autocmd FileType sh,zsh,csh,tcsh inoremap <silent> <buffer> <C-X>! #!/bin/<C-R>=&ft<CR>
+    autocmd FileType sh,zsh,csh,tcsh let &l:path = substitute($PATH, ':', ',', 'g')
+    autocmd FileType tex             let b:dispatch = 'latex -interaction=nonstopmode %' | setlocal formatoptions+=l
+    autocmd FileType text,txt,mail   setlocal ai com=fb:*,fb:-,n:>
+    autocmd FileType timl            let b:dispatch = ':w|source %' | let b:start = b:dispatch . '|TLrepl' | command! -bar -bang Console Wepl
+    autocmd FileType vim             setlocal keywordprg=:help |
                 \ if exists(':Runtime') |
                 \   let b:dispatch = ':Runtime' |
                 \   let b:start = ':Runtime|PP' |
@@ -184,7 +184,7 @@ augroup FTOptions " {{{2
                 \   let b:dispatch = ":unlet! g:loaded_{expand('%:t:r')}|source %" |
                 \ endif
     autocmd FileType xml,xsd,xslt,javascript setlocal ts=2
-    autocmd Syntax   javascript             setlocal isk+=$
+    autocmd Syntax   javascript              setlocal isk+=$
 augroup END " }}}2
 
 " }}}1
