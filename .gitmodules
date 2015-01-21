@@ -82,3 +82,9 @@
 [submodule "vim/bundle/vim-lion"]
 	path = vim/bundle/vim-lion
 	url = https://github.com/tommcdo/vim-lion
+[submodule "vim/bundle/vim-colors-solarized"]
+	path = vim/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized
+[submodule "vim/bundle/molokai"]
+	path = vim/bundle/molokai
+	url = https://github.com/tomasr/molokai

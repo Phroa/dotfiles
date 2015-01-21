@@ -87,9 +87,24 @@ highlight PmenuSbar ctermbg=0
 
 " Section: General Settings {{{1
 
+" Leader Configuration {{{2
+
+let mapleader = ","
+let g:mapleader = ","
+
+nmap <Leader>c :Gcommit<CR>
+nmap <Leader>s :Gstatus<CR>
+nmap <Leader>w :w!<CR>
+
+
+" }}}2
+
+" Settings {{{2
+
 set autoindent
 set autoread
 set autowrite
+set background=dark
 set cmdheight=2
 set expandtab
 set foldmethod=marker
@@ -98,6 +113,7 @@ set history=200
 set number
 set nowrap
 set relativenumber
+set scrolloff=4
 set shiftwidth=4
 set showcmd
 set showmatch
@@ -109,6 +125,11 @@ set tabstop=4
 set visualbell
 set wildmenu
 set wildmode=longest:full,full
+set wildignore+=*.o,.git,tmp,*.pyc,*~
+
+" }}}2
+
+colorscheme molokai
 
 " }}}1
 
