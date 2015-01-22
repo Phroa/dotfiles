@@ -41,6 +41,12 @@ else
 	link "dotfiles/zsh/zshrc" ".zshrc"
 fi
 
+if [[ -f "${HOME}/.tmux.conf" ]]; then
+	skip ".tmux.conf"
+else
+	link "dotfiles/tmux.conf" ".tmux.conf"
+fi
+
 if [[ -f "${HOME}/.gemrc" ]]; then
 	skip ".gemrc"
 else
