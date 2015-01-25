@@ -112,3 +112,60 @@
 [submodule "vim/bundle/vim-pasta"]
 	path = vim/bundle/vim-pasta
 	url = https://github.com/sickill/vim-pasta
+[submodule "vim/bundle/vim-textobj-rubyblock"]
+	path = vim/bundle/vim-textobj-rubyblock
+	url = https://github.com/nelstrom/vim-textobj-rubyblock
+[submodule "vim/bundle/vim-textobj-user"]
+	path = vim/bundle/vim-textobj-user
+	url = https://github.com/kana/vim-textobj-user
+[submodule "vim/bundle/vim-textobj-between"]
+	path = vim/bundle/vim-textobj-between
+	url = https://github.com/thinca/vim-textobj-between
+[submodule "vim/bundle/vim-textobj-brace"]
+	path = vim/bundle/vim-textobj-brace
+	url = https://github.com/julian/vim-textobj-brace
+[submodule "vim/bundle/vim-textobj-comment"]
+	path = vim/bundle/vim-textobj-comment
+	url = https://github.com/glts/vim-textobj-comment
+[submodule "vim/bundle/vim-textobj-diff"]
+	path = vim/bundle/vim-textobj-diff
+	url = https://github.com/kana/vim-textobj-diff
+[submodule "vim/bundle/vim-textobj-datetime"]
+	path = vim/bundle/vim-textobj-datetime
+	url = https://github.com/kana/vim-textobj-datetime
+[submodule "vim/bundle/vim-textobj-entire"]
+	path = vim/bundle/vim-textobj-entire
+	url = https://github.com/kana/vim-textobj-entire
+[submodule "vim/bundle/vim-textobj-fold"]
+	path = vim/bundle/vim-textobj-fold
+	url = https://github.com/kana/vim-textobj-fold
+[submodule "vim/bundle/vim-textobj-function"]
+	path = vim/bundle/vim-textobj-function
+	url = https://github.com/kana/vim-textobj-function
+[submodule "vim/bundle/vim-textobj-indent"]
+	path = vim/bundle/vim-textobj-indent
+	url = https://github.com/kana/vim-textobj-indent
+[submodule "vim/bundle/vim-textobj-lastpat"]
+	path = vim/bundle/vim-textobj-lastpat
+	url = https://github.com/kana/vim-textobj-lastpat
+[submodule "vim/bundle/vim-textobj-parameter"]
+	path = vim/bundle/vim-textobj-parameter
+	url = https://github.com/sgur/vim-textobj-parameter
+[submodule "vim/bundle/vim-textobj-variable-segment"]
+	path = vim/bundle/vim-textobj-variable-segment
+	url = https://github.com/julian/vim-textobj-variable-segment
+[submodule "vim/bundle/vim-textobj-quotes"]
+	path = vim/bundle/vim-textobj-quotes
+	url = https://github.com/beloglazov/vim-textobj-quotes
+[submodule "vim/bundle/vim-textobj-url"]
+	path = vim/bundle/vim-textobj-url
+	url = https://github.com/mattn/vim-textobj-url
+[submodule "vim/bundle/vim-textobj-xmlattr"]
+	path = vim/bundle/vim-textobj-xmlattr
+	url = https://github.com/whatyouhide/vim-textobj-xmlattr
+[submodule "vim/bundle/vim-textobj-path"]
+	path = vim/bundle/vim-textobj-path
+	url = https://github.com/paulhybryant/vim-textobj-path
+[submodule "vim/bundle/vim-textobj-ruby"]
+	path = vim/bundle/vim-textobj-ruby
+	url = https://github.com/tek/vim-textobj-ruby
