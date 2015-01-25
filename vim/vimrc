@@ -95,6 +95,7 @@ let g:mapleader = ","
 nmap <Leader>c :Gcommit<CR>
 nmap <Leader>g :GitGutterLineHighlightsToggle<CR>
 nmap <Leader>s :Gstatus<CR>
+nmap <Leader>t :TagbarToggle<CR>
 nmap <Leader>w :w!<CR>
 
 " https://github.com/junegunn/vim-easy-align
