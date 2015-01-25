@@ -172,3 +172,6 @@
 [submodule "vim/bundle/vim-textobj-signify-hunk"]
 	path = vim/bundle/vim-textobj-signify-hunk
 	url = https://github.com/killphi/vim-textobj-signify-hunk
+[submodule "vim/bundle/delimitMate"]
+	path = vim/bundle/delimitMate
+	url = https://github.com/raimondi/delimitMate
