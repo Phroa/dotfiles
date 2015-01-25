@@ -98,6 +98,42 @@ nmap <Leader>s :Gstatus<CR>
 nmap <Leader>t :TagbarToggle<CR>
 nmap <Leader>w :w!<CR>
 
+nnoremap 0 ^
+nnoremap ^ 0
+
+" https://github.com/skwp/dotfiles
+" Section: Surround {{{3
+
+map <Leader># ysiw#
+vmap <Leader># c#{<C-R>"}<ESC>
+
+map <Leader>" ysiw"
+vmap <Leader>" c"<C-R>""<ESC>
+
+map <Leader>' ysiw'
+vmap <Leader>' c'<C-R>"'<ESC>
+
+map <Leader>( ysiw(
+map <Leader>) ysiw)
+vmap <Leader>( c( <C-R>" )<ESC>
+vmap <Leader>) c(<C-R>")<ESC>
+
+map <Leader>] ysiw]
+map <Leader>[ ysiw[
+vmap <Leader>[ c[ <C-R>" ]<ESC>
+vmap <Leader>] c[<C-R>"]<ESC>
+
+map <Leader>} ysiw}
+map <Leader>{ ysiw{
+vmap <Leader>} c{ <C-R>" }<ESC>
+vmap <Leader>{ c{<C-R>"}<ESC>
+
+map <Leader>` ysiw`
+
+
+" }}}3
+
+
 " https://github.com/junegunn/vim-easy-align
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
