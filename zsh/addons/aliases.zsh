@@ -12,7 +12,7 @@ alias l='ls -alFh'
 alias ga='git add -A'
 alias gc='git commit'
 alias gi='vim .gitignore'
-alias gl='git log'
+alias gl='git l'
 alias gp='git push'
 alias gs='git status'
 
