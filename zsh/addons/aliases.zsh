@@ -9,11 +9,13 @@ alias grep='grep --color=auto'
 
 alias l='ls -alFh'
 
+alias g='git'
 alias ga='git add -A'
 alias gc='git commit'
+alias gd='git d'
 alias gi='vim .gitignore'
 alias gl='git l'
-alias gp='git push'
+alias gp='git p'
 alias gs='git status'
 
 alias vim="vim -u $HOME/dotfiles/vim/vimrc"
